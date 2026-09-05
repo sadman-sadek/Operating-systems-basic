@@ -20,11 +20,11 @@ task harder so to solve this problem we have to use an Operating System ,which w
 
 ## Some important terms
 
-<img width="800" height="700" alt="image" src="https://github.com/user-attachments/assets/e1bea235-be69-4149-83e5-1f4e80441422" /><br>
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/e1bea235-be69-4149-83e5-1f4e80441422" /><br>
 
 ## Storage System
 
-<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/4c5f807b-af4b-4f6f-bb57-218d3892891d" />
+<img width="800" height="500" alt="image" src="https://github.com/user-attachments/assets/4c5f807b-af4b-4f6f-bb57-218d3892891d" />
 
 
 - volatile = Data will be removed after power will be off
