@@ -155,3 +155,42 @@ Tracks and records which users/programs use how many and what kinds of computer 
 | File-System Manipulation | System Protection |
 | Inter-Process Communication | External Security |
 | Error Handling & Detection | Hardware Management |
+
+
+# QUICK REVISION (BANGLA)
+---
+# ⚡ ওএস কোর রিভিশন নোট (Quick OS Revision Cheat-Sheet)
+
+পরীক্ষার আগে বা ইন্টারভিউয়ের আগে দ্রুত রিভিশন দেওয়ার জন্য আজকের লেসনের মূল সারসংক্ষেপ নিচে দেওয়া হলো:
+
+---
+
+### 🔑 ১. ডেটা ট্রান্সফার ও প্রসেসর আর্কিটেকচার
+* **Interrupt-Driven I/O:** সাধারণ ও ছোট ফাইলের জন্য। ডিভাইস কাজ শেষে CPU-কে নক (Interrupt) করে এবং CPU নিজে ডেটা মেমোরিতে সরায়। বড় ফাইলের ক্ষেত্রে এতে CPU-র ওপর চাপ (Overhead) বাড়ে।
+* **DMA (Direct Memory Access):** বড় ফাইলের জন্য। CPU জাস্ট শুরুতে অর্ডার দিয়ে অন্য কাজে চলে যায়। ডিভাইস কন্ট্রোলার CPU-কে ছাড়াই **সরাসরি মেইন মেমোরির (RAM)** সাথে ডেটা আদান-প্রদান করে কাজ শেষ করে।
+* **Single-Processor:** পুরো সিস্টেমে মাত্র **১টি CPU** থাকে। কাজগুলো একটার পর একটা (Sequentially) চলে।
+* **Multiprocessor:** একটি মাদারবোর্ডে **একাধিক CPU/Core** থাকে এবং তারা একই RAM শেয়ার করে (Tightly-coupled)।
+  * **SMP (Symmetric):** সব CPU সমান ক্ষমতার, কোনো বস বা মাস্টার নেই। সবাই স্বাধীন।
+  * **AMP (Asymmetric):** এখানে **Master-Slave** সম্পর্ক থাকে। একজন মূল বস (Master) বাকিদের কাজ ভাগ করে দেয়।
+* **Clustered Systems:** একাধিক সম্পূর্ণ **আলাদা কম্পিউটার (Nodes)** হাই-স্পিড নেটওয়ার্কের মাধ্যমে যুক্ত হয়ে একটি বড় সিস্টেম হিসেবে কাজ করে (Loosely-coupled)। ১টি পিসি সম্পূর্ণ ক্র্যাশ করলেও সিস্টেম ডাউন হয় না (High Availability)।
+
+---
+
+### 🛡️ ২. ডুয়াল মোড অপারেশন (Dual-Mode Operation)
+সিস্টেমকে ভাইরাস বা ভুল কোড থেকে বাঁচাতে ওএস দুটি মোডে চলে, যা হার্ডওয়্যারের **Mode Bit** দিয়ে নিয়ন্ত্রিত হয়:
+* **User Mode (`Mode Bit = 1`):** সাধারণ অ্যাপগুলো (Chrome, VLC) এখানে চলে। হার্ডওয়্যার অ্যাক্সেস করার সরাসরি ক্ষমতা এদের নেই।
+* **Kernel Mode (`Mode Bit = 0`):** ওএসের নিজস্ব মোড (Supervisor Mode)। এর কাছে সব ক্ষমতা থাকে। 
+* **System Call / Trap:** ইউজার মোড থেকে কোনো অ্যাপ যদি হার্ডওয়্যার বা মেমোরি ব্যবহার করতে চায়, তবে সে সিস্টেম কলের মাধ্যমে কার্নেল মোডের সাহায্য নেয়।
+
+---
+
+### ⏱️ ৩. সিপিইউ শিডিউলিং (CPU Scheduling)
+* **Multiprogramming:** মূল লক্ষ্য **CPU-কে কখনো অলস বসতে না দেওয়া**। একটা জব যখন I/O এর জন্য ওয়েট করে, CPU তখন বসে না থেকে মেমোরির অন্য জবে সুইচ করে।
+* **Multitasking:** একজন সিঙ্গেল ইউজার যেন একই সাথে অনেকগুলো অ্যাপ (গান, কোড, ব্রাউজার) একসাথে চালাতে পারেন তার সুবিধা দেওয়া।
+* **Time-Sharing:** একটি মেইন সিস্টেমকে **একাধিক রিমোট ইউজার** একসাথে শেয়ার করে। প্রতিটি ইউজারকে নির্দিষ্ট ছোট সময় (**Time Quantum**) দেওয়া হয় এবং মিলি-সেকেন্ডের মধ্যে সবার মাঝে CPU সুইচ করে।
+
+---
+
+### ⚙️ ৪. ওএসের প্রধান সার্ভিসসমূহ (OS Services)
+* **ইউজার ফ্রেন্ডলি সার্ভিস (User Convenience):** User Interface (CLI/GUI) ➔ Program Execution ➔ File System Management ➔ Inter-Process Communication ➔ Error Detection।
+* **সিস্টেম ফ্রেন্ডলি সার্ভিস (System Efficiency):** Resource Allocation (রিসোর্স বণ্টন) ➔ Job Accounting (হিসাব রাখা) ➔ Protection & Security (নিরাপত্তা)।
